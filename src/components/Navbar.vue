@@ -124,7 +124,6 @@ li a.active {
     /* Additional styles for the links when hovered in the media query */
     li a:hover {
         color: #0c7cec;
-        border-color: #0c7cec;
     }
 
     /* Additional styles for the active link in the media query */
