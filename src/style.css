@@ -9,3 +9,9 @@ body {
 	font-family: 'Roboto Condensed', sans-serif;
 	background-color: #222222;
 }
+
+.wrapper {
+	padding: 0 16px;
+	max-width: 1400px;
+	margin: 0 auto;
+}
