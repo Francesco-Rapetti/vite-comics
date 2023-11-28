@@ -14,4 +14,9 @@ export default {
 * {
     color: white;
 }
+
+.wrapper {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
 </style>
