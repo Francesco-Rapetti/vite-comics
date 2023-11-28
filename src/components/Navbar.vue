@@ -34,14 +34,19 @@ export default {
                     name: 'SHOP',
                     link: '#',
                 }
-            ]
+            ],
+            activeLink: null
         }
+    },
+
+    methods: {
+
     }
 }
 </script>
 
 <template>
-    <div class="w-100 bg-white px-3">
+    <div id="navbar-wrapper" class="w-100 bg-white px-3">
         <nav class="navbar navbar-expand-lg w-100 mx-auto py-0 d-flex justify-content-between">
             <a href="#" class="navbar-brand py-3">
                 <img src="../assets/img/dc-logo.png" alt="DC logo">
@@ -54,8 +59,9 @@ export default {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="w-100"></div>
                 <ul class="navbar-nav mb-2 mb-lg-0 justify-self-end">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">CHARACTERS</a>
+                    <li v-for="link, i in navbarLinks" class="nav-item fw-bold">
+                        <a :class="{ 'active': i === activeLink }" aria-current="page" href="#" @click="activeLink = i">{{
+                            link.name }}</a>
                     </li>
                 </ul>
             </div>
@@ -71,6 +77,40 @@ nav {
 }
 
 ul {
-    width: auto !important;
+    gap: 30px !important;
+    height: 100% !important;
+}
+
+li a {
+    color: #484c51;
+    text-decoration: none;
+    border-bottom: 6px solid transparent;
+}
+
+li a:hover {
+    color: #0c7cec;
+}
+
+li a.active {
+    color: #0c7cec;
+    border-color: transparent;
+}
+
+
+@media screen and (min-width: 992px) {
+    li a {
+        padding-top: 58px;
+        padding-bottom: 52px;
+    }
+
+    li a:hover {
+        color: #0c7cec;
+        border-color: #0c7cec;
+    }
+
+    li a.active {
+        color: #0c7cec;
+        border-color: #0c7cec;
+    }
 }
 </style>
