@@ -1,8 +1,10 @@
 <script>
 import Navbar from './components/Navbar.vue';
+import Library from './components/Library.vue';
 export default {
 	components: {
-		Navbar
+		Navbar,
+		Library
 	}
 }
 </script>
@@ -11,6 +13,10 @@ export default {
 	<header>
 		<Navbar />
 	</header>
+
+	<main>
+		<Library />
+	</main>
 </template>
 
 <style scoped></style>
