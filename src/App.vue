@@ -2,11 +2,13 @@
 import Navbar from './components/Navbar.vue';
 import Library from './components/Library.vue';
 import QuickLinks from './components/QuickLinks.vue';
+import JumboFooter from './components/JumboFooter.vue';
 export default {
 	components: {
 		Navbar,
 		Library,
-		QuickLinks
+		QuickLinks,
+		JumboFooter
 	}
 }
 </script>
@@ -20,6 +22,10 @@ export default {
 		<Library />
 		<QuickLinks />
 	</main>
+
+	<footer>
+		<JumboFooter />
+	</footer>
 </template>
 
 <style scoped></style>
