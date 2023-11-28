@@ -3,12 +3,14 @@ import Navbar from './components/Navbar.vue';
 import Library from './components/Library.vue';
 import QuickLinks from './components/QuickLinks.vue';
 import JumboFooter from './components/JumboFooter.vue';
+import SocialFooter from './components/SocialFooter.vue';
 export default {
 	components: {
 		Navbar,
 		Library,
 		QuickLinks,
-		JumboFooter
+		JumboFooter,
+		SocialFooter
 	}
 }
 </script>
@@ -25,6 +27,7 @@ export default {
 
 	<footer>
 		<JumboFooter />
+		<SocialFooter />
 	</footer>
 </template>
 
