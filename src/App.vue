@@ -1,10 +1,12 @@
 <script>
 import Navbar from './components/Navbar.vue';
 import Library from './components/Library.vue';
+import QuickLinks from './components/QuickLinks.vue';
 export default {
 	components: {
 		Navbar,
-		Library
+		Library,
+		QuickLinks
 	}
 }
 </script>
@@ -16,6 +18,7 @@ export default {
 
 	<main>
 		<Library />
+		<QuickLinks />
 	</main>
 </template>
 
