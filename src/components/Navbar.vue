@@ -45,9 +45,6 @@ export default {
          *
          * @return {void} This function doesn't return anything.
          */
-        /**
-         * Function to handle scroll behavior
-         */
         scrollFunction() {
             // Get the navbar element by its ID
             const navbar = document.getElementById("navbar-wrapper");
