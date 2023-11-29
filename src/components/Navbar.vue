@@ -40,30 +40,45 @@ export default {
     },
 
     methods: {
-        // When the user scrolls down 50px from the top of the document, resize the header's font size
+        /**
+         * Scroll function that resize the navbar based on scroll position.
+         *
+         * @return {void} This function doesn't return anything.
+         */
+        /**
+         * Function to handle scroll behavior
+         */
         scrollFunction() {
+            // Get the navbar element by its ID
             const navbar = document.getElementById("navbar-wrapper");
+            // Get the logo element by its ID
             const logo = document.getElementById("logo");
+            // Get all the anchor elements inside list items
             const links = document.querySelectorAll("li a");
-            const media = window.matchMedia("(min-width: 992px)");
+
+            // Check if the page has been scrolled down more than 50 pixels
             if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                console.log("scrolled")
+                console.log("scrolled");
+
+                // Add a shadow class to the navbar for a visual effect
                 navbar.classList.add("shadow");
+                // Reduce the width of the logo
                 logo.style.width = "50px";
-                if (true) {
-                    links.forEach((link) => {
-                        link.style.paddingBottom = "27px";
-                    })
-                }
+                // Adjust the padding of each link for better alignment
+                links.forEach((link) => {
+                    link.style.paddingBottom = "27px";
+                });
             } else {
-                console.log("not scrolled")
+                console.log("not scrolled");
+
+                // Remove the shadow class from the navbar
                 navbar.classList.remove("shadow");
+                // Restore the original width of the logo
                 logo.style.width = "103px";
-                if (true) {
-                    links.forEach((link) => {
-                        link.style.paddingBottom = "52px";
-                    })
-                }
+                // Restore the original padding of each link
+                links.forEach((link) => {
+                    link.style.paddingBottom = "53px";
+                });
             }
         }
     },
@@ -114,16 +129,19 @@ export default {
 </template>
 
 <style scoped>
+/* CSS for the navbar wrapper */
 #navbar-wrapper {
     position: relative;
     z-index: 99;
     transition: all 0.3s ease-in-out;
 }
 
+/* Spacer height for the navbar */
 #navbar-spacer {
     height: 135px;
 }
 
+/* CSS for images with transition and width */
 img {
     transition: all 0.3s ease-in-out;
     width: 103px;
@@ -177,7 +195,7 @@ li a.active {
     /* Additional styles for the links in the media query */
     li a {
         padding-top: 58px;
-        padding-bottom: 52px;
+        padding-bottom: 53px;
     }
 
     /* Additional styles for the links when hovered in the media query */
