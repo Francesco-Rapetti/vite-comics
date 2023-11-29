@@ -40,19 +40,51 @@ export default {
     },
 
     methods: {
+        // When the user scrolls down 50px from the top of the document, resize the header's font size
+        scrollFunction() {
+            const navbar = document.getElementById("navbar-wrapper");
+            const logo = document.getElementById("logo");
+            const links = document.querySelectorAll("li a");
+            const media = window.matchMedia("(min-width: 992px)");
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                console.log("scrolled")
+                navbar.classList.add("shadow");
+                logo.style.width = "50px";
+                if (true) {
+                    links.forEach((link) => {
+                        link.style.paddingBottom = "27px";
+                    })
+                }
+            } else {
+                console.log("not scrolled")
+                navbar.classList.remove("shadow");
+                logo.style.width = "103px";
+                if (true) {
+                    links.forEach((link) => {
+                        link.style.paddingBottom = "52px";
+                    })
+                }
+            }
+        }
+    },
 
+    mounted() {
+        window.onscroll = () => {
+            this.scrollFunction();
+        }
     }
 }
+
 </script>
 
 <template>
     <!-- Wrapper for the navbar -->
-    <div id="navbar-wrapper" class="w-100 bg-white px-3">
+    <div id="navbar-wrapper" class="w-100 bg-white px-3 position-fixed">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg w-100 mx-auto py-0 d-flex justify-content-between">
             <!-- Navbar Brand -->
             <a href="#" class="navbar-brand py-3">
-                <img src="../assets/img/dc-logo.png" alt="DC logo">
+                <img id="logo" src="../assets/img/dc-logo.png" alt="DC logo">
             </a>
 
             <!-- Navbar Toggler -->
@@ -78,9 +110,25 @@ export default {
             </div>
         </nav>
     </div>
+    <div id="navbar-spacer"></div>
 </template>
 
 <style scoped>
+#navbar-wrapper {
+    position: relative;
+    z-index: 99;
+    transition: all 0.3s ease-in-out;
+}
+
+#navbar-spacer {
+    height: 135px;
+}
+
+img {
+    transition: all 0.3s ease-in-out;
+    width: 103px;
+}
+
 /* Styles for the navigation bar */
 nav {
     max-width: 1400px;
@@ -94,11 +142,17 @@ ul {
     height: 100% !important;
 }
 
+li {
+    height: 1.3em;
+    overflow: hidden;
+}
+
 /* Styles for the links in the list items */
 li a {
     color: #484c51;
     text-decoration: none;
     border-bottom: 6px solid transparent;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Styles for the links when hovered */
@@ -114,6 +168,11 @@ li a.active {
 
 /* Media query for screens larger than 992px */
 @media screen and (min-width: 992px) {
+
+    li {
+        height: auto;
+        overflow: visible;
+    }
 
     /* Additional styles for the links in the media query */
     li a {
